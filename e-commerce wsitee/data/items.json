@@ -1,0 +1,32 @@
+[
+  {
+    "id": "p1",
+    "name": "Wireless Headphones",
+    "description": "High-quality Bluetooth headphones with noise cancellation.",
+    "price": "2499.00",
+    "category": "electronics",
+    "sizes": [],
+    "image": ""
+  },
+  {
+    "id": "p2",
+    "name": "Smart Watch",
+    "description": "Waterproof smart watch with health tracking features.",
+    "price": "3499.00",
+    "category": "wearables",
+    "sizes": [],
+    "image": ""
+  },
+  {
+    "id": "p3",
+    "name": "Casual Backpack",
+    "description": "Lightweight and durable backpack suitable for school and travel.",
+    "price": "899.00",
+    "category": "bags",
+    "sizes": [
+      "18L",
+      "24L"
+    ],
+    "image": ""
+  }
+]

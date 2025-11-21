@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Shop - Home{% endblock %}
+{% block content %}
+<div class="mb-4">
+  <form class="row g-2" method="get">
+    <div class="col-md-5">
+      <input name="q" value="{{ q }}" placeholder="Search items..." class="form-control">
+    </div>
+    <div class="col-md-3">
+      <input name="category" value="{{ category }}" placeholder="Category" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  {% for it in items %}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      {% if it.image %}
+        <img src="{{ url_for('static', filename='uploads/' ~ it.image) }}" class="card-img-top" style="height:220px; object-fit:cover;">
+      {% endif %}
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ it.name }}</h5>
+        <p class="card-text text-truncate">{{ it.description }}</p>
+        <p class="mt-auto"><strong>Price:</strong> {{ it.price }}</p>
+        {% if it.sizes %}
+        <p class="text-muted-small mb-1"><strong>Sizes:</strong> {{ it.sizes|join(', ') }}</p>
+        {% endif %}
+        <div class="mt-2">
+          <a class="btn btn-outline-primary btn-sm" href="#">View Details</a>
+        </div>
+        <form class="mt-2 d-flex flex-column gap-2" method="post" action="{{ url_for('add_to_cart') }}">
+          <input type="hidden" name="item_id" value="{{ it.id }}">
+          {% if it.sizes %}
+          <select class="form-select form-select-sm" name="size">
+            {% for size in it.sizes %}
+            <option value="{{ size }}">{{ size }}</option>
+            {% endfor %}
+          </select>
+          {% endif %}
+          <div class="input-group input-group-sm">
+            <span class="input-group-text">Qty</span>
+            <input class="form-control" type="number" min="1" value="1" name="quantity">
+          </div>
+          <button class="btn btn-success btn-sm w-100">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <div class="col-12">
+    <p>No items found.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

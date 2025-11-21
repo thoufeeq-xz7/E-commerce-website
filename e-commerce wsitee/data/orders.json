@@ -1,0 +1,25 @@
+[
+  {
+    "id": "f5ab884c",
+    "customer": {
+      "name": "thoufeeq",
+      "email": "thoufeeq471@gmail.com",
+      "address": "kldfkljb",
+      "notes": ""
+    },
+    "items": [
+      {
+        "available_sizes": [],
+        "id": "p1",
+        "image": "",
+        "name": "Wireless Headphones",
+        "price": "2499.00",
+        "quantity": 1,
+        "size": ""
+      }
+    ],
+    "total": "2499.00",
+    "created_at": "2025-11-20T16:43:59Z",
+    "status": "ordered"
+  }
+]
